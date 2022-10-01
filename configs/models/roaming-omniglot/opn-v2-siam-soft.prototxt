@@ -1,0 +1,56 @@
+backbone_class: "c4_backbone"
+model_class: "online_siamese_proto_net"
+memory_class: "proto_memory_v2"
+num_classes: 10
+fix_unknown: true
+freeze_backbone: false
+
+c4_config: {
+    height: 28
+    width: 28
+    num_channels: 1
+    num_filters: 64
+    num_filters: 64
+    num_filters: 64
+    num_filters: 64
+    weight_decay: 1e-5
+    data_format: "NHWC"
+    normalization: "batch_norm"
+    pool_padding: "VALID"
+    add_last_relu: false
+}
+
+optimizer_config: {
+    optimizer: "adam"
+    lr_list: 1e-3
+    lr_list: 1e-4
+    lr_list: 1e-5
+    lr_decay_steps: 40000
+    lr_decay_steps: 60000
+    max_train_steps: 80000
+    batch_size: 1
+    # inner_loop_truncate_steps: 30
+}
+
+memory_net_config: {
+    max_classes: 20
+    radius_init: -10.0
+    radius_init_write: -12.0
+    similarity: "cosine"
+    create_unk: true
+    entropy_loss: 1.0
+    new_cluster_loss: 1.0
+    new_cluster_thresh: 0.5
+    new_cluster_entropy_loss: 0.0
+    linear_schedule: 0
+    decay: 0.995
+    soft_label: true
+    use_variables: true
+    max_bsize: 1
+}
+
+train_config: {
+    steps_per_val: 1000
+    steps_per_save: 1000
+    steps_per_log: 10
+}

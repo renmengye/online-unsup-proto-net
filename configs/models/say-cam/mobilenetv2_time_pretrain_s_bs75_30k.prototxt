@@ -1,0 +1,31 @@
+backbone_class: "mobilenet_v2"
+model_class: "pretrain_net"
+num_classes: 2055
+
+resnet_config: {
+    height: 224
+    width: 224
+    num_channels: 3
+    weight_decay: 2e-4
+    normalization: "sync_batch_norm"
+    global_avg_pool: true
+    data_format: "NHWC"
+}
+
+optimizer_config: {
+    optimizer: "adam"
+    lr_list: 1e-3
+    lr_list: 1e-4
+    lr_list: 1e-5
+    lr_decay_steps: 25000
+    lr_decay_steps: 35000
+    max_train_steps: 38000
+    max_train_epochs: 2
+    batch_size: 75
+}
+
+train_config: {
+    steps_per_val: 1000
+    steps_per_save: 1000
+    steps_per_log: 10
+}

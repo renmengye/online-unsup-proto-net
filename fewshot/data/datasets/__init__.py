@@ -1,0 +1,10 @@
+from .omniglot import OmniglotDataset  # NOQA
+from .uppsala import UppsalaDataset  # NOQA
+from .matterport import MatterportDataset  # NOQA
+from .tiered_imagenet import TieredImageNetDataset  # NOQA
+from .cifar10 import CIFAR10Dataset  # NOQA
+from .omniglot_iid import OmniglotIIDDataset  # NOQA
+from .celeb_a_identity import CelebAIdentityDataset  # NOQA
+from .say_cam import SAYCamDataset  # NOQA
+from .say_cam_labeled import SAYCamLabeledDataset  # NOQA
+from .say_cam_labeled_v2 import SAYCamLabeledV2Dataset  # NOQA

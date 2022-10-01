@@ -1,0 +1,3 @@
+[flake8]
+ignore = E111,E114,F841,E402
+exclude = *_pb2.py

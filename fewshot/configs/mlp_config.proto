@@ -1,0 +1,14 @@
+// General CNN configurations.
+
+syntax = "proto2";
+
+package fewshot.configs;
+
+message MLPConfig {
+  optional int32 num_channels = 1;
+  optional int32 num_inputs = 2;
+  repeated int32 num_filters = 3;
+  optional float weight_decay = 4;
+  optional string data_format = 5 [default = "NHWC"];
+  optional string normalization = 6;
+}

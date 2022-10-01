@@ -1,0 +1,16 @@
+
+./results/fewshot-lifelong-release/roaming-imagenet/roaming-imagenet-dnc-pre-nossl
+./results/fewshot-lifelong-release/roaming-imagenet/roaming-imagenet-lstm-pre-nossl
+./results/fewshot-lifelong-release/roaming-imagenet/roaming-imagenet-oml-cos-nossl
+./results/fewshot-lifelong-release/roaming-imagenet/roaming-imagenet-oml-nossl
+./results/fewshot-lifelong-release/roaming-imagenet/roaming-imagenet-online-imp-nossl
+./results/fewshot-lifelong-release/roaming-imagenet/roaming-imagenet-online-matchingnet-pre-nossl
+./results/fewshot-lifelong-release/roaming-imagenet/roaming-imagenet-online-protonet-pre-nossl
+./results/fewshot-lifelong-release/roaming-imagenet/roaming-imagenet-cpm-ssl
+./results/fewshot-lifelong-release/roaming-imagenet/roaming-imagenet-dnc-pre-ssl
+./results/fewshot-lifelong-release/roaming-imagenet/roaming-imagenet-lstm-pre-ssl
+./results/fewshot-lifelong-release/roaming-imagenet/roaming-imagenet-oml-cos-ssl
+./results/fewshot-lifelong-release/roaming-imagenet/roaming-imagenet-oml-ssl
+./results/fewshot-lifelong-release/roaming-imagenet/roaming-imagenet-online-imp-ssl
+./results/fewshot-lifelong-release/roaming-imagenet/roaming-imagenet-online-matchingnet-pre-ssl
+./results/fewshot-lifelong-release/roaming-imagenet/roaming-imagenet-online-protonet-pre-ssl

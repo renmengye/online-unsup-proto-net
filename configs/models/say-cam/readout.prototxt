@@ -1,0 +1,31 @@
+backbone_class: "mobilenet_v2"
+model_class: "simclr_net"
+# model_class: "pretrain_net"
+# memory_class: "proto_memory_v2"
+num_classes: 26
+
+resnet_config: {
+    height: 224
+    width: 224
+    num_channels: 3
+    weight_decay: 2e-4
+    normalization: "sync_batch_norm"
+    global_avg_pool: true
+    data_format: "NHWC"
+}
+
+contrastive_net_config: {
+    temperature: 0.5
+    decoder_normalization: "sync_batch_norm"
+}
+
+optimizer_config: {
+    optimizer: "adam"
+    lr_list: 1e-3
+    lr_list: 1e-4
+    lr_list: 1e-5
+    lr_decay_steps: 40000
+    lr_decay_steps: 60000
+    max_train_steps: 80000
+    batch_size: 1
+}

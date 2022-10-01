@@ -1,0 +1,14 @@
+data_folder: "./data/roaming-rooms/h5_data"
+dataset: "roaming-rooms"
+results: "./results/oc-fewshot"
+checkpoint: "/checkpoint/xxx"
+train_split: "train"
+train_fs_split: "train"
+val_fs_split: "val"
+test_fs_split: "test"
+random_crop: true
+random_flip: false
+random_color: true
+random_color_strength: 0.5
+random_rotate: false
+area_range_lb: 0.08

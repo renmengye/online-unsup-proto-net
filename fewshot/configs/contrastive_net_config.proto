@@ -1,0 +1,30 @@
+// Contrastive Net configurations;
+
+syntax = "proto2";
+
+package fewshot.configs;
+
+message ContrastiveNetConfig {
+  optional int32 decoder_nlayer = 1 [default = 2];
+  optional int32 output_dim = 2 [default = 128];
+  optional int32 decoder_hidden_dim = 3 [default = 512];
+  optional bool hidden_norm = 4 [default = true];
+  optional float temperature = 5 [default = 0.5];
+  optional string decoder_normalization = 6 [default = "none"];
+  optional float base_momentum = 7 [default = 0.99];
+  optional bool use_l1_reg = 8;
+  optional float l1_reg_coeff = 9;
+  optional bool use_l1_diff = 10;
+  optional float l1_diff_coeff = 11;
+  optional int32 num_prototypes = 12;
+  optional int32 queue_size = 13;
+  optional int32 queue_warmup_steps = 14;
+  optional bool normalize_last_projector_layer = 15 [default = false];
+  optional bool projector_last_relu = 16 [default = false];
+
+  // Used by SimSiam.
+  optional int32 projector_nlayer = 17 [default = 2];
+  optional int32 projector_hidden_dim = 18 [default = 512];
+  optional int32 predictor_nlayer = 19 [default = 1];
+  optional int32 predictor_hidden_dim = 20 [default = 128];
+}

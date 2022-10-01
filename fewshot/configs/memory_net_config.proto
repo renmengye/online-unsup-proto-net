@@ -1,0 +1,126 @@
+// Memory module configurations.
+
+syntax = "proto2";
+
+package fewshot.configs;
+
+message MemoryNetConfig {
+
+  // Maximum number of classes.
+  optional int32 max_classes = 1;
+
+  // Initialization for radius.
+  optional float radius_init = 2;
+
+  // Not currently used.
+  optional float alpha = 3;
+
+  // For example based storage, maximum number of items.
+  optional int32 max_items = 4;
+  
+  // Not currently used.
+  optional float log_sigma_init = 5;
+
+  // Not currently used.
+  optional float log_lambda_init = 6;
+  
+  // Not currently used.
+  optional int32 max_stages = 7;
+
+  // Not currently used.
+  optional int32 buffer_size = 8;
+
+  // Not currently used.
+  optional bool buffer_dropout = 9;
+
+  // Similarity function.
+  optional string similarity = 10 [default = "euclidean"];
+  
+  // Initial value of the beta write.
+  optional float radius_init_write = 11;
+
+  // Choice of "radii" or "max"
+  optional string unknown_logits = 12 [default = "radii"];
+
+  optional float temp_init = 13 [default = 10.0];
+
+  // For GRU based models.
+  optional bool dense_update = 14 [default = true];
+
+  // For GRU based models, initialize forget gate.
+  optional float gru_bias_init = 15 [default = -2.0];
+
+  // Whether to normalize feature prior to read/write.
+  optional bool normalize_feature = 16 [default = false];
+
+  // Going to be coupled with hybrid_config.
+  optional bool use_ssl_beta_gamma_write = 17 [default = true];
+
+  // Going to be coupled with main config.
+  optional bool fix_unknown = 18 [default = true];
+
+  // ID for unknown.
+  optional int32 unknown_id = 19 [default = 40];
+
+  // Use variables to store.
+  optional bool use_variables = 20;
+
+  // Maximum batch size.
+  optional int32 max_bsize = 21 [default = 16];
+
+  // Whether to train storage vectors altogether.
+  optional bool trainable_storage = 22;
+
+  // Create a new cluster for unknown.
+  optional bool create_unk = 23;
+
+  // Loss for cluter confidence
+  optional float entropy_loss = 24 [default = 1.0];
+
+  // Loss for creating a new cluster.
+  optional float new_cluster_loss = 25 [default = 0.3];
+
+  // Threshold to create a new cluster
+  optional float new_cluster_thresh = 26 [default = 0.5];
+
+  // Threshold to target at.
+  optional float new_prob_target = 27 [default = 0.5];
+  
+  // Entropy for new cluster.
+  optional float new_cluster_entropy_loss = 28 [default = 0.1];
+  
+  // Siamese loss.
+  optional float siam_loss = 29 [default = 1.0];
+  
+  // Lineary decay threshold to.
+  optional int32 linear_schedule = 30 [default = 10000];
+
+  // Memory usage decay.
+  optional float decay = 31 [default = 1.0];
+
+  // Whether to use soft label for self-supervision.
+  optional bool soft_label = 32;
+
+  // Temperature for soft label.
+  optional float soft_label_temp = 33 [default = 1.0];
+
+  // Loss for example level contrastive loss.
+  optional float example_contrastive_loss = 34 [default = 1.0];
+
+  // Whether to add a projection head for the cluster loss branch.
+  optional int32 cluster_projection_nlayer = 35 [default = 0];
+
+  optional bool mixture_weight = 36 [default = false];
+
+  optional bool min_dist = 37 [default = true];
+  
+  // Straight through gradient bypass stochastic new cluster.
+  optional bool straight_through = 38 [default = false];
+  
+  // Always create new cluster.
+  optional bool always_new = 39 [default = false];
+
+  optional bool temp_learnable = 40 [default = true];
+
+  optional bool straight_through_softmax = 41 [default = false];
+}

@@ -1,0 +1,67 @@
+backbone_class: "resnet_12_backbone"
+model_class: "online_siamese_proto_net"
+memory_class: "proto_memory_v2"
+num_classes: 10
+fix_unknown: true
+roi_pooling_backbone: false
+freeze_backbone: false
+# ssl_store_schedule: true
+num_episodes: -1
+
+resnet_config: {
+    height: 120
+    width: 160
+    num_channels: 4
+    num_residual_units: 1
+    num_residual_units: 1
+    num_residual_units: 1
+    num_residual_units: 1
+    num_filters: 32
+    num_filters: 64
+    num_filters: 128
+    num_filters: 256
+    strides: 2
+    strides: 2
+    strides: 2
+    strides: 2
+    weight_decay: 2e-4
+    normalization: "batch_norm"
+    global_avg_pool: true
+    data_format: "NCHW"
+    add_last_relu: false
+}
+
+optimizer_config: {
+    optimizer: "adam"
+    lr_list: 1e-3
+    lr_list: 1e-4
+    lr_list: 1e-5
+    lr_decay_steps: 40000
+    lr_decay_steps: 60000
+    max_train_steps: 80000
+    batch_size: 1
+    # inner_loop_truncate_steps: 50
+}
+
+memory_net_config: {
+    max_classes: 20
+    radius_init: -10.0
+    radius_init_write: -12.0
+    similarity: "cosine"
+    create_unk: true
+    entropy_loss: 1.0
+    new_cluster_loss: 1.0
+    new_cluster_thresh: 0.5
+    new_cluster_entropy_loss: 0.0
+    linear_schedule: 0
+    decay: 0.99
+    soft_label: true
+    use_variables: true
+    max_bsize: 1
+}
+
+train_config: {
+    steps_per_val: 1000
+    steps_per_save: 1000
+    steps_per_log: 10
+}

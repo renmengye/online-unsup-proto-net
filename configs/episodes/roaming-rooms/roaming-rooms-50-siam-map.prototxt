@@ -1,0 +1,17 @@
+nway: 40
+semisupervised: false
+unsupervised: true
+augmentation: true
+label_ratio: 0.0
+num_aug: 1
+maxlen: 50
+distractor_nquery: 0
+distractor_nshot: 0
+distractor_nway: 5
+max_num_per_cls: 8
+area_lb: 0.20
+color_distort: true
+color_distort_strength: 0.5
+flip_left_right: false
+min_object_covered: 0.5
+map_fn: true

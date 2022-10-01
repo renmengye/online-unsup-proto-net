@@ -1,0 +1,7 @@
+data_folder: "./data/say-cam-labeled/S_labeled"
+dataset: "say-cam-labeled"
+results: "./results/oc-fewshot"
+checkpoint: "/checkpoint/xxx"
+train_split: "train"
+val_split: "test"
+test_split: "test"

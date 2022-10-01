@@ -1,0 +1,48 @@
+backbone_class: "resnet_12_backbone"
+model_class: "simclr_net"
+num_classes: 21
+simclr_random_blur: false
+
+resnet_config: {
+    height: 120
+    width: 160
+    num_channels: 4
+    num_residual_units: 1
+    num_residual_units: 1
+    num_residual_units: 1
+    num_residual_units: 1
+    num_filters: 32
+    num_filters: 64
+    num_filters: 128
+    num_filters: 256
+    strides: 2
+    strides: 2
+    strides: 2
+    strides: 2
+    weight_decay: 1e-4
+    normalization: "sync_batch_norm"
+    global_avg_pool: true
+    data_format: "NCHW"
+    add_last_relu: false
+}
+
+optimizer_config: {
+    optimizer: "sgd"
+    max_train_epochs: 20
+    lr_list: 1e-1
+    batch_size: 128
+    warmup_epochs: 0
+}
+
+contrastive_net_config: {
+    decoder_normalization: "sync_batch_norm"
+    projector_hidden_dim: 512
+    predictor_hidden_dim: 128
+    output_dim: 512
+}
+
+train_config: {
+    steps_per_val: 1000
+    steps_per_log: 10
+    steps_per_save: 1000
+}

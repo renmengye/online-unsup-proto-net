@@ -1,0 +1,51 @@
+backbone_class: "resnet_12_backbone"
+model_class: "swav_queue_net"
+num_classes: 351
+simclr_random_blur: false
+
+resnet_config: {
+    height: 84
+    width: 84
+    num_channels: 4
+    num_residual_units: 1
+    num_residual_units: 1
+    num_residual_units: 1
+    num_residual_units: 1
+    num_filters: 32
+    num_filters: 64
+    num_filters: 128
+    num_filters: 256
+    strides: 2
+    strides: 2
+    strides: 2
+    strides: 2
+    weight_decay: 1e-4
+    normalization: "sync_batch_norm"
+    global_avg_pool: true
+    data_format: "NCHW"
+    add_last_relu: false
+}
+
+optimizer_config: {
+    optimizer: "lars"
+    max_train_epochs: 5
+    lr_list: 3e-1
+    batch_size: 50
+    lr_scaling: "linear"
+    warmup_epochs: 0
+    learn_rate_schedule: "cosine"
+}
+
+contrastive_net_config: {
+    temperature: 0.1
+    decoder_normalization: "sync_batch_norm"
+    num_prototypes: 1000
+    queue_size: 2000
+    queue_warmup_steps: 2000
+}
+
+train_config: {
+    steps_per_val: 1000
+    steps_per_log: 10
+    steps_per_save: 1000
+}

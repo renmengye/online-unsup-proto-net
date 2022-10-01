@@ -1,0 +1,54 @@
+// Learning configurations.
+
+syntax = "proto2";
+
+package fewshot.configs;
+
+message OptimizerConfig {
+  // Optimizer name.
+  optional string optimizer = 1;
+
+  // Learning rate decay values.
+  repeated float lr_list = 2;
+
+  // Learning rate decay steps.
+  repeated int32 lr_decay_steps = 3;
+
+  // Total number of training steps.
+  optional int32 max_train_steps = 4;
+
+  // Training batch size.
+  optional int32 batch_size = 5;
+
+  // Training number of GPUs.
+  optional int32 num_gpu = 6 [default = 1];
+
+  optional float clip_norm = 7 [default = 0.0];
+
+  // T-BPTT. Default = 0 means no truncation.
+  optional int32 inner_loop_truncate_steps = 8;
+
+  // Scale learning rate by the number of GPUs.
+  optional string lr_scaling = 9 [default = "linear"];
+
+  // Inner loop update for eval
+  optional bool inner_loop_update_eval = 10;
+
+  // Inner loop update repeat
+  optional int32 inner_loop_repeat = 11 [default = 1];
+
+  // Learning rate warm up.
+  optional int32 warmup_epochs = 12;
+  
+  // Learning rate warm up.
+  optional int32 warmup_steps = 13;
+
+  // Used in some experiments based on epochs.
+  optional int32 max_train_epochs = 14;
+
+  // Learning rate decay epochs. Used in some experiments based on epochs.
+  repeated int32 lr_decay_epochs = 15;
+
+  // Learning rate schedule type.
+  optional string learn_rate_schedule = 16 [default = "cosine"];
+}

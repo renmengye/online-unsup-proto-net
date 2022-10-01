@@ -1,0 +1,2 @@
+./results/fewshot-lifelong-release/roaming-imagenet/roaming-imagenet-cpm-nossl
+./results/fewshot-lifelong-release/roaming-imagenet/roaming-imagenet-cpm-ssl

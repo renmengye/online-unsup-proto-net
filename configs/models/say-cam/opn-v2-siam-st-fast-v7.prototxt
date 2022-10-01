@@ -1,0 +1,51 @@
+backbone_class: "mobilenet_v2"
+model_class: "online_siamese_proto_net_v7"
+memory_class: "proto_memory_v2"
+num_classes: 26
+fix_unknown: true
+num_episodes: -1
+
+resnet_config: {
+    height: 224
+    width: 224
+    num_channels: 3
+    weight_decay: 2e-4
+    normalization: "sync_batch_norm"
+    global_avg_pool: true
+    data_format: "NHWC"
+}
+
+optimizer_config: {
+    optimizer: "adam"
+    lr_list: 1e-3
+    lr_list: 1e-4
+    lr_decay_steps: 40000
+    max_train_steps: 50000
+    learn_rate_schedule: "staircase"
+    batch_size: 1
+}
+
+memory_net_config: {
+    max_classes: 20
+    radius_init: -10.0
+    radius_init_write: -12.0
+    similarity: "cosine"
+    create_unk: true
+    entropy_loss: 1.0
+    new_cluster_loss: 1.0
+    new_cluster_thresh: 0.5
+    new_cluster_entropy_loss: 0.0
+    linear_schedule: 0
+    decay: 0.99
+    soft_label: false
+    use_variables: true
+    max_bsize: 1
+    straight_through: true
+    straight_through_softmax: false
+}
+
+train_config: {
+    steps_per_val: 2000
+    steps_per_save: 2000
+    steps_per_log: 10
+}
